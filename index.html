@@ -45,22 +45,37 @@
                     <img width="800" height="600" src="img/egypt-2012.png" alt="egypt">
                 </section>
                 <section>
+                    <h2> it's a web service, after all</h2>
+                    <pre><code># import dataest
+curl -X POST -F csv_file=@election_results_8pm_9pm.csv \
+         http://bamboo.io/datasets
+
+# define calculation
+curl -X POST -d "name=voter_turnout&formula=vote_count/population" \
+         http://bamboo.io/datasets/123212421/calculations
+
+# query result
+curl http://bamboo.io/dataset/12432112424/info?select=voter_turnout
+
+# later that day
+curl -X POST -f csv_file=@election_results_9pm_10pm.csv \
+        http://bamboo.io/datasets
+
+# query updated results easily
+curl http://bamboo.io/datasets/12432112424/info?select=voter_turnout
+                    </code></pre>
+                    </br>
+                    <p> pybamboo </p>
+                    </br>
+                    <p> bamboo.js </p>
+                </section>
+                <section>
                     <h2>bar charts in meteor</h2>
                     <img width="800" height="600" src="img/meteor.jpg" alt="meteor">
                 </section>
                 <!--  -->
                 <section data-markdown="slides/4_stack.md"></section>
                 <section data-markdown="slides/5_whatitdoes.md"></section>
-                <section>
-                    <h2> it's a web service, after all</h2>
-                    <pre><code>
-                        curl -X POST -F csv_file=@some_file.csv http://bamboo.io/dataset
-                        curl -X DELETE http://bamboo.io/dataset/12432112424
-                        curl -X POST -d "name=bogus&formula=num_handpumps/num_waterpoint" http://bamboo.io/datasets/123212421/calculations
-                    </code></pre>
-                    <p> pybamboo </p>
-                    <p> bamboo.js </p>
-                </section>
                 <section data-markdown="slides/7_obstacles.md"></section>
             
 
